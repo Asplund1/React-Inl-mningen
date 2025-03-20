@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { filterSongs } from "../Features/musicSlice";
-import { Motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ export default function SearchBar() {
   };
 
   return (
-    <Motion.input
+    <motion.input
       initial={{ scale: 0.95 }}
       animate={{ scale: 1 }}
       transition={{ duration: 0.3 }}

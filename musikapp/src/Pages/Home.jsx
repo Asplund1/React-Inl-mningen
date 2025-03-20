@@ -1,6 +1,8 @@
 import Navbar from "../Components/Navbar";
 import Card from "../Components/Card";
 import ThemeToggle from "../Components/ThemeToggle";
+import AnimatedCard from "../Components/AnimatedCard";
+
 
 export default function Home() {
     return (
