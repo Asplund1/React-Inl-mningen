@@ -1,18 +1,52 @@
 import Navbar from "../Components/Navbar";
-import SearchBar from "../Components/SearchBar";
-import SongList from "../Components/SongList";
 
-export default function Search() {
-    return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <Navbar />
-        <div className="container mx-auto px-4 py-8">
-          <h1 className="text-2xl font-bold text-primary dark:text-white mb-4">Sök efter låtar</h1>
-          <SearchBar />
-          <div className="mt-6">
-            <SongList />
-          </div>
-        </div>
-      </div>
-    );
+// src/pages/SearchMusicBrainz.jsx
+import { useState } from "react";
+import { searchArtist } from "../services/musicbrainzService";
+
+export default function SearchMusicBrainz() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [results, setResults] = useState([]);
+  const [error, setError] = useState(null);
+
+  async function handleSearch() {
+    try {
+      setError(null);
+      const artists = await searchArtist(searchTerm);
+      setResults(artists);
+    } catch (err) {
+      setError(err.message);
+    }
   }
+
+  return (
+    <div className="p-4">
+    <Navbar/>
+      <h1 className="text-2xl font-bold mb-4">Sök i MusicBrainz</h1>
+      <div className="mb-4 flex space-x-2">
+        <input
+          type="text"
+          placeholder="Skriv ett artistnamn..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="border p-2 rounded"
+        />
+        <button onClick={handleSearch} className="bg-blue-500 text-white p-2 rounded">
+          Sök
+        </button>
+      </div>
+
+      {error && <p className="text-red-500">Fel: {error}</p>}
+
+      <ul className="space-y-2">
+        {results.map((artist, index) => (
+          <li key={index} className="border-b py-2">
+            <strong>{artist.name}</strong> <br />
+            <small>Typ: {artist.type || "Okänd"}</small><br />
+            <small>Disambiguation: {artist.disambiguation || "N/A"}</small>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}

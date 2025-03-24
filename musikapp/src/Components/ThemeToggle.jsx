@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
-
+import { useEffect } from "react";
+import { toggleTheme } from "../Features/ThemeSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function ThemeToggle() {
-    const [darkMode, setDarkMode] = useState(false);
-  
+    const dispatch = useDispatch();
+    const darkMode = useSelector((state) => state.theme.darkMode);
+
+
     useEffect(() => {
       if (darkMode) {
         document.documentElement.classList.add('dark');
@@ -14,9 +17,15 @@ export default function ThemeToggle() {
   
     return (
       <button 
-        onClick={() => setDarkMode(!darkMode)} 
-        className="px-3 py-2 border border-gray-300 rounded-md bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors duration-300"
-        aria-label="Byt tema mellan mörkt och ljust"
+      onClick={() => dispatch(toggleTheme())}
+      className="
+                text-black
+                dark:text-white
+                hover:text-blue-600
+                dark:hover:text-yellow-300
+                transition-colors
+                duration-300
+              p-2 border rounded-md"
       >
         {darkMode ? "🌞 Ljust läge" : "🌜 Mörkt läge"}
       </button>
