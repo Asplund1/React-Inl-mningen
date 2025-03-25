@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import musicReducer from "../Features/musicSlice";
+import playlistReducer from "../Features/PlaylistSlice";
 import Themereducer from "../Features/ThemeSlice";
 
 export const store = configureStore({
   reducer: {
-    music: musicReducer,
+    playlist: playlistReducer,
     theme: Themereducer,
   },
 });

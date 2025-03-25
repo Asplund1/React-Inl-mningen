@@ -49,6 +49,21 @@ export default function Navbar() {
           </li>
           <li>
             <Link
+              to="/Playlist"
+              className="
+                text-black
+                dark:text-white
+                hover:text-blue-600
+                dark:hover:text-yellow-300
+                transition-colors
+                duration-300
+              "
+            >
+              Spellista
+            </Link>
+          </li>
+          <li>
+            <Link
               to="/about"
               className="
                 text-black
