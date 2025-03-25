@@ -6,14 +6,14 @@ export default function SearchBar({ searchTerm, setSearchTerm, handleSearch, loa
     <div className="mb-4 flex space-x-2">
       <input
         type="text"
-        placeholder="Skriv ett artistnamn..."
+        placeholder="Skriv sökterm..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="border p-2 rounded"
+        className="border p-2 rounded bg"
       />
       <button
         onClick={handleSearch}
-        className="bg-blue-500 text-white p-2 rounded"
+        className="bg-blue-500 text-white px-4 py-2 rounded transition hover:bg-blue-600"
         disabled={loading}
       >
         {loading ? "Söker..." : "Sök"}

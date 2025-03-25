@@ -1,14 +1,10 @@
-// src/components/SearchResults.jsx
+// src/Components/SearchResults.jsx
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addSongToPlaylist } from "../Features/PlaylistSlice";
+import { addSongToPlaylist } from "../Features/playlistSlice";
 
-export default function SearchResults({ results, error, searchType }) {
+export default function SearchResults({ results, searchType }) {
   const dispatch = useDispatch();
-
-  if (error) {
-    return <p className="text-red-500">Fel: {error}</p>;
-  }
 
   if (!results.length) {
     return <p>Inga resultat</p>;
@@ -17,26 +13,41 @@ export default function SearchResults({ results, error, searchType }) {
   return (
     <ul className="space-y-2">
       {results.map((item, index) => {
-        // Om searchType är "track", item kan innehålla { id, title, artist-credit }
-        // Om searchType är "artist", item innehåller { id, name } etc.
-
+        // Bygg "songData" för att lägga till i spellista
         const songData = {
           id: item.id,
-          title: searchType === "track" ? item.title : item.name,
+          title: searchType === "artist" ? item.name : item.title,
           artist:
-            searchType === "track"
-              ? item["artist-credit"]?.[0]?.name || "Okänd"
-              : item.name,
+            searchType === "artist"
+              ? item.name
+              : item["artist-credit"]?.[0]?.name || "Okänd",
         };
 
         return (
-          <li key={index} className="border-b py-2">
+          <li key={item.id || index} className="border-b py-2">
             <strong>{songData.title}</strong> <br />
-            <small>Artist: {songData.artist}</small>
+            {searchType === "track" && (
+              <small>Artist: {songData.artist}</small>
+            )}
+            {searchType === "artist" && (
+              <small>Typ: {item.type || "Okänd"}</small>
+            )}
             <br />
             <button
               onClick={() => dispatch(addSongToPlaylist(songData))}
-              className="mt-1 bg-blue-500 text-white px-2 py-1 rounded"
+              className="
+                mt-1 
+                bg-green-500 
+                text-white 
+                px-2 
+                py-1 
+                rounded 
+                transition 
+                transform 
+                hover:scale-105 
+                hover:bg-green-600 
+                active:scale-95
+              "
             >
               Lägg till i spellista
             </button>

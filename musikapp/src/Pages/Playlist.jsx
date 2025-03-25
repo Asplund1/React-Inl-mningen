@@ -14,12 +14,8 @@ export default function Playlist() {
       {/* Samma navbar som övriga sidor */}
       <Navbar />
       <div className="container mx-auto px-4 py-8 text-gray-700 dark:text-gray-300">
-        {/* Placera ThemeToggle uppe till höger, om du vill ha samma struktur */}
-        <div className="flex justify-end mb-4">
-          <ThemeToggle />
-        </div>
-
-        <h1 className="text-2xl font-bold text-primary dark:text-white mb-4">
+  
+      <h1 className="text-2xl font-bold text-primary dark:text-white mb-4">
           Min Spellista
         </h1>
 
