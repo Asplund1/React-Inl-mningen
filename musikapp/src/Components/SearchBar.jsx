@@ -1,4 +1,4 @@
-// src/Components/SearchBar.jsx
+
 import React from "react";
 
 export default function SearchBar({ searchTerm, setSearchTerm, handleSearch, loading }) {
@@ -9,7 +9,7 @@ export default function SearchBar({ searchTerm, setSearchTerm, handleSearch, loa
         placeholder="Skriv sökterm..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="border p-2 rounded bg"
+        className="p-2 rounded text-sm placeholder-gray-400 dark:placeholder-gray-500 text-gray-800 dark:text-gray-100 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
       />
       <button
         onClick={handleSearch}

@@ -100,6 +100,8 @@ Testa via webbläsarens devtools för olika skärmstorlekar.
 ├─ public/
 ├─ package.json
 └─ README.md
+
+
 Components/: Återanvändbara UI-komponenter (Navbar, SearchBar, etc.).
 
 Pages/: Varje vy/sida i applikationen (Home, About, Search).

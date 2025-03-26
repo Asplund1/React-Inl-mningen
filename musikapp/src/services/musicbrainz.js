@@ -1,5 +1,3 @@
-// src/services/musicbrainz.js
-
 export async function searchArtist(artistName) {
   const url = `https://musicbrainz.org/ws/2/artist?query=${encodeURIComponent(
     artistName

@@ -10,13 +10,11 @@ export default function Navbar() {
       transition-colors
       duration-300
     ">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Titel */}
+      <div className="container mx-auto flex flex-wrap items-center justify-between">
         <div className="text-black dark:text-white font-bold text-xl transition-colors duration-300">
           Musikappen
         </div>
-        {/* Länkar */}
-        <ul className="flex space-x-6">
+        <ul className="flex flex-wrap space-x-3 text-sm sm:text-base mt-2 sm:mt-0">
           <li>
             <Link
               to="/"

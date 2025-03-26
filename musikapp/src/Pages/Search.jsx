@@ -1,4 +1,3 @@
-// src/pages/SearchMusicBrainz.jsx
 import { useState } from "react";
 import Navbar from "../Components/Navbar";
 import { searchArtist, searchTrack } from "../services/musicbrainz";
@@ -54,12 +53,10 @@ export default function SearchMusicBrainz() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <Navbar />
       <div className="container mx-auto px-4 py-8 text-gray-700 dark:text-gray-300">
-        
-        <h1 className="text-2xl font-bold text-primary dark:text-white mb-4">
-          Sök i MusicBrainz
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary dark:text-white mb-4">
+          Sök efter din nya favorit låt eller artist!
         </h1>
 
-        {/* Radioknappar för "artist" eller "track" */}
         <div className="mb-4 flex items-center space-x-4">
           <label className="inline-flex items-center">
             <input
@@ -84,7 +81,6 @@ export default function SearchMusicBrainz() {
           </label>
         </div>
 
-        {/* Sökfältet */}
         <SearchBar
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
@@ -92,12 +88,10 @@ export default function SearchMusicBrainz() {
           loading={loading}
         />
 
-        {/* Felmeddelande */}
         {error && (
           <p className="text-red-500 dark:text-red-400 mt-4">Fel: {error}</p>
         )}
 
-        {/* Resultatlista */}
         <SearchResults results={results} searchType={searchType} />
       </div>
     </div>

@@ -1,15 +1,13 @@
-// src/components/Playlist.jsx
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeSongFromPlaylist, clearPlaylist } from "../Features/PlaylistSlice";
 
-export default function Playlist() {
+export default function PlaylistContent() {
   const dispatch = useDispatch();
   const songs = useSelector((state) => state.playlist.songs);
 
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-bold mb-2">Min Spellista</h2>
+    <div>
       {songs.length === 0 ? (
         <p>Inga låtar i spellistan ännu.</p>
       ) : (
@@ -19,7 +17,7 @@ export default function Playlist() {
               <strong>{song.title}</strong> - {song.artist}
               <button
                 onClick={() => dispatch(removeSongFromPlaylist(song.id))}
-                className="ml-4 text-red-500"
+                className="ml-4 text-red-500 hover:underline"
               >
                 Ta bort
               </button>
@@ -27,11 +25,10 @@ export default function Playlist() {
           ))}
         </ul>
       )}
-
       {songs.length > 0 && (
         <button
           onClick={() => dispatch(clearPlaylist())}
-          className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
+          className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
         >
           Rensa spellista
         </button>
