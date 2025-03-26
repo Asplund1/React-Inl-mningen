@@ -5,33 +5,31 @@ import SearchBar from "../Components/SearchBar";
 import SearchResults from "../Components/SearchResults";
 
 export default function SearchMusicBrainz() {
-  const [searchType, setSearchType] = useState("artist"); // "artist" eller "track"
+  const [searchType, setSearchType] = useState("artist"); 
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // Byter typ (artist/track) och nollställer sökning
+ 
   function handleRadioChange(e) {
-    const newType = e.target.value; // "artist" eller "track"
+    const newType = e.target.value; 
     setSearchType(newType);
-    setSearchTerm("");   // Tömmer input-fältet
-    setResults([]);      // Töm tidigare resultat
-    setError(null);      // Nollställer ev. felmeddelande
+    setSearchTerm("");   
+    setResults([]);      
+    setError(null);      
   }
 
   async function handleSearch() {
     try {
-      // Rensa eventuella gamla fel
       setError(null);
       setLoading(true);
-  
-      // 1. Kolla om sökfältet är tomt
+
       if (!searchTerm.trim()) {
         setResults([]);
         setError("Vänligen skriv något i sökrutan");  
         setLoading(false);
-        return; // Avbryt innan anrop till MusicBrainz
+        return;
       }
   
       let data;

@@ -18,64 +18,45 @@ Kortfattad dokumentation över hur koden är strukturerad (mappstruktur och huvu
 Beskrivning av egen funktionalitet (om du har lagt till filtrering, sökfunktion eller något annat). -->
 
 Projektbeskrivning
-Musikappen är en modern dashboard där du kan:
-
+Musikappen är en dashboard där du kan:
 Söka efter artister och låtar (via MusicBrainz API).
-
 Byta mellan ljust/mörkt tema med en ThemeToggle.
-
 Spara låtar och artister i en spellista (Redux).
-
 Navigera mellan olika sidor: Home, Search och About.
-
-Syftet är att visa upp kunskaper i React, UI-ramverk, responsiv design, state management och dokumentation.
-
+Jag valde att göra en musikapp / dashboard för det lät intressant att jobba med ett musik api.
 
 
 Teknikval
-React (v18+): Frontend-bibliotek för komponentbaserad utveckling.
+React
 
 Redux Toolkit: Hantering av global state (spellista).
-
 React Router: Navigering mellan olika sidor.
-
 Tailwind CSS: UI-ramverk för responsiv design och snabba CSS-utility-klasser.
-
 MusicBrainz API: Externt API för artist- och låtdata.
 
 
 
 Funktioner
-Sökfunktion
 
+Sökfunktion:
 Välj “Artist” eller “Låt” med en radioknapp.
-
 Skriv en sökterm i SearchBar.
-
 Klicka på “Sök” för att hämta max 10 träffar från MusicBrainz.
-
-Spellista
-
 Varje träff kan läggas till i en global spellista (Redux).
 
-Gå till /playlist (eller motsvarande) för att se sparade låtar.
-
+spellista:
+Klicka på spellista för att se sparade låtar.
 Ta bort enskilda låtar eller rensa hela listan.
 
-Tema (Dark/Light)
 
+Tema (Dark/Light):
 ThemeToggle byter mellan ljust och mörkt läge.
 
-Sidan använder Tailwind-klasser för att ändra bakgrund och textfärger.
+Ramverk:
+Sidan använder Tailwind-klasser för att ändra bakgrund och textfärger samt storlek på text.
 
-Responsiv Design
-
+Responsiv Design:
 Applikationen fungerar i mobil, surfplatta och desktop-läge.
-
-Testa via webbläsarens devtools för olika skärmstorlekar.
-
-
-
 
 
 ├─ src/
@@ -102,12 +83,19 @@ Testa via webbläsarens devtools för olika skärmstorlekar.
 └─ README.md
 
 
-Components/: Återanvändbara UI-komponenter (Navbar, SearchBar, etc.).
+Components: Återanvändbara UI-komponenter (Navbar, SearchBar, etc.).
+Pages: Varje vy/sida i applikationen (Home, About, Search).
+Features: Redux-slices (ex. playlistSlice) som hanterar global state.
+services: API-anrop mot MusicBrainz.
+state: Konfiguration av Redux-store.
 
-Pages/: Varje vy/sida i applikationen (Home, About, Search).
 
-Features/: Redux-slices (ex. playlistSlice) som hanterar global state.
 
-services/: API-anrop mot MusicBrainz.
 
-state/: Konfiguration av Redux-store.
+   installation och körning av musikappen/dashboarden
+
+  1. klona detta repo
+  i github går det att klona genom att trycka på den gröna knappen som heter <> code, sedan kan du välja att öppna applikationen genom några olika alternativ.
+  2. installera beroenden
+    cd musikapp skriver du sedan in i terminalen bash 
+    följt av npm install följt av npm run dev
