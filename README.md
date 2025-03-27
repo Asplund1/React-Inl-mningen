@@ -6,17 +6,6 @@ skillnad från grupp projektet: startade om från början, då grupp delen var g
 men jag fortsatte med att använda tailwind samt med att själva iden om en musik dashboard. 
 
 
-
-<!-- Projektbeskrivning (Vad är detta för projekt? Varför en musikapp? Vilken data använder du?)
-
-Teknikval (React, Tailwind, React Router, eventuella andra bibliotek)
-
-Installationsinstruktioner (hur man kör npm install, npm run dev etc.)
-
-Kortfattad dokumentation över hur koden är strukturerad (mappstruktur och huvudkomponenter).
-
-Beskrivning av egen funktionalitet (om du har lagt till filtrering, sökfunktion eller något annat). -->
-
 Projektbeskrivning
 Musikappen är en dashboard där du kan:
 Söka efter artister och låtar (via MusicBrainz API).

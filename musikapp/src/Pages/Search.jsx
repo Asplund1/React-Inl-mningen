@@ -11,7 +11,7 @@ export default function SearchMusicBrainz() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
- // Uppdatera söktypen (artist eller låt) och nollställ andra relaterade states
+ // välj mellan artist eller låt
   function handleRadioChange(e) {
     const newType = e.target.value; 
     setSearchType(newType);
@@ -45,7 +45,7 @@ export default function SearchMusicBrainz() {
     } catch (err) {
       setError(err.message);
     } finally {
-// Avsluta laddningstillståndet oavsett resultat
+      // Avsluta laddningstillståndet oavsett resultat
       setLoading(false);
     }
   }
