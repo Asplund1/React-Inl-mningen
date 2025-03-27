@@ -11,7 +11,7 @@ export default function SearchMusicBrainz() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
- 
+ // byter mellan aritst eller låt 
   function handleRadioChange(e) {
     const newType = e.target.value; 
     setSearchType(newType);
@@ -19,7 +19,8 @@ export default function SearchMusicBrainz() {
     setResults([]);      
     setError(null);      
   }
-
+  
+// själva sökningen
   async function handleSearch() {
     try {
       setError(null);
